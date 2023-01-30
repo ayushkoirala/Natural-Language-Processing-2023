@@ -1,4 +1,4 @@
-This repository is for submitting Paper redign assignment  for AT82.05 Artificial Intelligence:NLU at Asian Institute of Technology by chaklam silpasuwanchai
+This repository is for submitting Paper reading assignment  for AT82.05 Artificial Intelligence:NLU at Asian Institute of Technology by Dr. chaklam silpasuwanchai
 
 ## Paper reading assignment- 1
 
