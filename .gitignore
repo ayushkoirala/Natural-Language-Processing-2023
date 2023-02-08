@@ -1,3 +1,6 @@
 /Coding Assignment/Dependency-Parsing/output/
 /Coding Assignment/Dependency-Parsing/glove.6B.50d.txt
 /Coding Assignment/Dependency-Parsing/data/
+/Coding Assignment/frontend/node_modules/
+/Coding Assignment/frontend/.gitignore
+/Coding Assignment/Resume-Parsing/__pycache__/
