@@ -25,7 +25,7 @@ def preprocessing(sentence):
 
     return " ".join(cleaned_tokens)
 
-def readPDF(cv_path, page=5):
+def readPDF(cv_path, page=0):
     reader = PdfReader(cv_path)
     page = reader.pages[page]
     text = page.extract_text()

@@ -2126,7 +2126,9 @@
 {"label":"SKILL","pattern":[{"LOWER":"zepto"}]}
 {"label":"SKILL","pattern":[{"LOWER":"zeromq"}]}
 {"label":"SKILL","pattern":[{"LOWER":"zoho"},{"LOWER":"crm"}]}
-{"label":"SKILL","pattern":[{"LOWER":"zookeeper"}]}
+{"label":"EDUCATION","pattern":[{"TEXT":"masters"}]}
+{"label":"SKILL","pattern":[{"LOWER":""}]}
+{"label":"EDUCATION","pattern":[{"LOWER":"zookeeper"}]}
 {"label":"EDUCATION","pattern":[{"TEXT":"post-doctoral"}]}
 {"label":"EDUCATION","pattern":[{"TEXT":"post"}, {"IS_PUNCT": "True"}, {"TEXT":"doctoral"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "post-doc"}]}
@@ -2137,7 +2139,7 @@
 {"label":"EDUCATION","pattern":[{"TEXT": "phd"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ph.d."}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ph.d"}, {"IS_PUNCT": "True"}]}
-{"label":"EDUCATION","pattern":[{"TEXT":"master"}]}
+{"label":"EDUCATION","pattern":[{"TEXT": "Masters"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "msc"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ms.c."}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ms.c"}, {"IS_PUNCT": "True"}]}
@@ -2145,7 +2147,7 @@
 {"label":"EDUCATION","pattern":[{"TEXT": "mba", "IS_PUNCT": "True"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "m"}, {"IS_PUNCT": "True"}, {"TEXT": "b"}, {"IS_PUNCT": "True"}, {"TEXT": "a"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "m"}, {"IS_PUNCT": "True"}, {"TEXT": "b"}, {"IS_PUNCT": "True"}, {"TEXT": "a"}, {"IS_PUNCT": "True"}]}
-{"label":"EDUCATION","pattern":[{"TEXT":"bachelor"}]}
+{"label":"EDUCATION","pattern":[{"TEXT": "bachelor"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ba"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "b.a."}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "b.a"}, {"IS_PUNCT": "True"}]}
@@ -2158,6 +2160,9 @@
 {"label":"EDUCATION","pattern":[{"TEXT": "ug"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "ug.", "IS_PUNCT": "True"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "diploma"}]}
-{"label":"EDUCATION","pattern":[{"TEXT": "high school"}]}
+{"label":"EDUCATION","pattern":[{"TEXT": "higher secondary education"}]}
+{"label":"EDUCATION","pattern":[{"TEXT": "bachelor in computer engineering"}]}
+{"label":"EDUCATION","pattern":[{"TEXT": "masters in data science and artificial intelligence"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "hs"}]}
 {"label":"EDUCATION","pattern":[{"TEXT": "hs.", "IS_PUNCT": "True"}]}
+{"label":"EDUCATION","pattern":[{"LOWER": "Bachelor in Computer Engineering"}]}

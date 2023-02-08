@@ -77,7 +77,8 @@ function App() {
 
   return (
     <div className="page">
-      <form id="form-file-upload" onDragEnter={handleDrag}>
+      <h1>Resume Extractor</h1>
+      <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
         <input
           ref={inputRef}
           type="file"
@@ -118,7 +119,7 @@ function App() {
         )}
       <div className='display-div'>
         <div className='grid-item education-div'>
-          <h1>Education</h1>
+          <h2>Education</h2>
         <ol className='education-list'>
 
           {educationList && educationList.map(education =>
@@ -129,7 +130,7 @@ function App() {
 
         </div>
         <div className='grid-item skill-div'>
-          <h1>Skills</h1>
+          <h2>Skills</h2>
         <ol className='skill-list'>
           {skillsList && skillsList.map(skill =>
               
