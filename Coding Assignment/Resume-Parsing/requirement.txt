@@ -1,0 +1,6 @@
+pip install fastapi
+pip install spacy
+pip install pandas
+pip install PyPDF2
+npm install -g create-react-app
+npx create-react-app frontend
