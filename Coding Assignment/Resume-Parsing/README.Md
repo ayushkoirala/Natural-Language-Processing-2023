@@ -25,7 +25,7 @@ A web application that extracts information from PDF resumes like Education , Sk
 </p>
 
 <p align="center">
-  <img src="../figure/resume-parsing.png" width="350" >
+  <img src="../figure/resume-parsing.png">
 </p>
 
 
