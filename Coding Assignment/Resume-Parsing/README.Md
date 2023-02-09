@@ -19,13 +19,11 @@ A web application that extracts information from PDF resumes like Education , Sk
 
 ## Features 
 * FastAPI is a modern, high-performance web framework for building APIs with Python based on standard type hints. It has the following key features: Fast to run: It offers very high performance, on par with NodeJS and Go, thanks to Starlette and pydantic. <p align="center"><img src="../figure/fastapi.png"> </p>
-* React is an open-source technology that combines JavaScript and HyperText Markup Language (HTML) to display small pieces of the large UI. This is how my frontend looks like:
-
-<p align="center">
-  <img src="../figure/resume-parsing.png">
-</p>
+* React is an open-source technology that combines JavaScript and HyperText Markup Language (HTML) to display small pieces of the large UI. This is how my frontend looks like:<p align="center"><img src="../figure/resume-parsing.png"></p>
 
 
+# Special Thanks 
+Thank you to Ms.Sandhya Lamichhane (https://github.com/creatorof) for helping in ReactJs (frontend) of the website.
 
 
 
