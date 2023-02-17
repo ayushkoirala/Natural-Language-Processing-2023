@@ -1,0 +1,6 @@
+pip3 install twint
+pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint
+pip install pytreebank
+pip install torch torchdata torchtext
+pip install nest_asyncio
+
