@@ -4,3 +4,5 @@
 /Coding Assignment/frontend/node_modules/
 /Coding Assignment/frontend/.gitignore
 /Coding Assignment/Resume-Parsing/__pycache__/
+/coding Assignment/Sentiment-Analysis-Treebank-dataset/utils/model.pt
+/coding Assignment/Sentiment-Analysis-Treebank-dataset/__pycache__/
