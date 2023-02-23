@@ -44,7 +44,8 @@ def predict(prompt,model,vocab,temperature=1):
     return ' '.join(generation)
 
 def load_lstm():
-    with open('vocab.pickle', 'rb') as handle:
+    #utils\vocab.pickle
+    with open('./vocab.pickle', 'rb') as handle:
         vocab = pickle.load(handle)
 
 
@@ -55,7 +56,7 @@ def load_lstm():
     dropout_rate = 0.65              
     lr = 1e-3                     
     model = LSTMLanguageModel(vocab_size, emb_dim, hid_dim, num_layers, dropout_rate)
-    save_path = f'best-val-auto.pt'
+    save_path = f'./best-val-auto.pt'
     model.load_state_dict(torch.load(save_path,map_location=torch.device('cpu')))
     return model, vocab
     
@@ -67,8 +68,9 @@ if __name__ == "__main__":
     prompt = 'import numpy'
 
 #sample from this distribution higher probability will get more change
-    
-    generation = generate(prompt, 30, 1, model, tokenizer, 
+    temperatures = [0.4, 0.7, 1.0]
+    for temp in temperatures:
+        generation = generate(prompt, 30, temp, model, tokenizer, 
                             vocab_dict, device, 0)
-    print(generation)
+        print(generation)
     # print(str(temperature)+'\n'+' '.join(generation)+'\n')
