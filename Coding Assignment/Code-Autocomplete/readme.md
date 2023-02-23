@@ -4,7 +4,6 @@ BI-LSTM LM for Auto code complete on codeparrot/github-jupyter-code-to-text data
 
 
 ## Requirement
-* Download NodeJs from ![Click](https://nodejs.org/en/)
 * pip install -r requrement.txt
 
 ## Technologies Used
