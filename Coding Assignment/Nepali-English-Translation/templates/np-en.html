@@ -37,19 +37,25 @@
         <div class="row">
             <div class="column" style="background-color:#74992e;">
                 <form action="/np-en" method="POST">
+                    <div class = 'Method'>
+                        <label for = ""><B>Enter the Method</B></label>
+                        <br>
+                        <textarea name="Method" rows="10" cols="50">{{data.source}}</textarea>
+                    </div>
                     <div class = 'source'>
-                        <label for = "">Enter a English sentences</label>
+                        <label for = ""><B>Enter a English sentences</B></label>
                         <br>
                         <textarea name="source" rows="10" cols="50">{{data.source}}</textarea>
                     </div>
                     <button style="width:100px; height:100px;" type = "sumbit", value = "Translate", class = "btn btn-success">Translate</button>
                 </form>
-            </div>
-            <div class="column" style="background-color:#11ffeeff;">
-                <label for = "">Predictive Sentence</label>
+                <label for = ""><B>Predictive Sentence</B></label>
                 <br>
-                <textarea name="source" rows="20" cols="50">{{data.predict}}</textarea>
+                <textarea name="source" rows="10" cols="50">{{data.predict}}</textarea>
             </div>
+            
+                
+          
         </div>
     </body>
 </html>

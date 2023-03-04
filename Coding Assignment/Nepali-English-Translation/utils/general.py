@@ -6,7 +6,7 @@ from torchtext.data.utils import get_tokenizer
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-SRC_LANGUAGE,TRG_LANGUAGE = 'np', 'en'
+SRC_LANGUAGE,TRG_LANGUAGE = 'en', 'np'
 
 token_transform = {}
 token_transform[SRC_LANGUAGE] = Tokenizer(model="attacut-sc")
@@ -20,9 +20,7 @@ special_symbols = ['<unk>', '<pad>', '<sos>', '<eos>']
 # Load data (vocab and transform)
 import pickle
 
-with open('D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\model\\vocab.pkl', 'rb') as handle:
-    vocab_transform = pickle.load(handle)
-print(vocab_transform)
+
 
 # helper function to club together sequential operations
 def sequential_transforms(*transforms):
@@ -43,12 +41,7 @@ def tensor_transform(token_ids):
                       torch.tensor(token_ids), 
                       torch.tensor([EOS_IDX])))
 
-# src and trg language text transforms to convert raw strings into tensors indices
-text_transform = {}
-for ln in [SRC_LANGUAGE, TRG_LANGUAGE]:
-    text_transform[ln] = sequential_transforms(token_transform[ln], #Tokenization
-                                               vocab_transform[ln], #Numericalization
-                                               tensor_transform) # Add BOS/EOS and create tensor
+
 
 def initialize_weights(m):
         for name, param in m.named_parameters():
@@ -57,7 +50,23 @@ def initialize_weights(m):
             else:
                 nn.init.constant_(param.data, 0)
 
-def translation(source, variants, save_path,device):
+def translation(source, varients,device):
+    if varients == "multiplicative":
+        with open('D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\vocab _temp.pkl', 'rb') as handle:
+            vocab_transform = pickle.load(handle)
+        save_path = "D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttentionmuti.pt"
+    elif varients == "additive":
+        print("Here.............................")
+        with open('D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\vocab.pkl', 'rb') as handle:
+            vocab_transform = pickle.load(handle)
+        save_path = "D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttention_fullSCB.pt"
+        
+    # src and trg language text transforms to convert raw strings into tensors indices
+    text_transform = {}
+    for ln in [SRC_LANGUAGE, TRG_LANGUAGE]:
+        text_transform[ln] = sequential_transforms(token_transform[ln], #Tokenization
+                                                vocab_transform[ln], #Numericalization
+                                                tensor_transform) # Add BOS/EOS and create tensor
     src_text = text_transform[SRC_LANGUAGE](source).to(device)
     target = "This is fake target"*20
     trg_text = text_transform[TRG_LANGUAGE](target).to(device)
@@ -66,6 +75,8 @@ def translation(source, variants, save_path,device):
     print('src_text and trg_text shape',src_text.shape, trg_text.shape)
     text_length = torch.tensor([src_text.size(0)]).to(dtype=torch.int64)
 
+    
+    
     input_dim   = len(vocab_transform[SRC_LANGUAGE])
     output_dim  = len(vocab_transform[TRG_LANGUAGE])
     emb_dim     = 256  
@@ -105,8 +116,8 @@ def translation(source, variants, save_path,device):
 
 
 if __name__=="__main__":
-    variants = 'additive'
-    save_path = 'D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\model\\Seq2SeqPackedAttention_fullSCB.pt'
+    variants = 'multiplicative'
+    save_path = 'D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttentionmuti.pt'
     source = "It was like something out of a movie"
     output = translation(source,variants,save_path)
     print(source)

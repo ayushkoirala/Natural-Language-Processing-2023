@@ -17,7 +17,7 @@ torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
 variants = 'additive'
-save_path = './model/Seq2SeqPackedAttention_fullSCB.pt'
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mykey'
@@ -32,7 +32,8 @@ def index():
 def machinetranslation():
     if request.method == 'POST':
         source = request.form.get('source')
-        predict = translation(source, variants, save_path, device)
+        varients = request.form.get('Method')
+        predict = translation(source, varients, device)
     else:
         source = ' '
         predict = ' '
