@@ -6,7 +6,7 @@ from torchtext.data.utils import get_tokenizer
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-SRC_LANGUAGE,TRG_LANGUAGE = 'en', 'np'
+SRC_LANGUAGE,TRG_LANGUAGE = 'np', 'en'
 
 token_transform = {}
 token_transform[SRC_LANGUAGE] = Tokenizer(model="attacut-sc")
@@ -52,10 +52,12 @@ def initialize_weights(m):
 
 def translation(source, varients,device):
     if varients == "multiplicative":
+        SRC_LANGUAGE,TRG_LANGUAGE = 'en', 'np'
         with open('D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\vocab _temp.pkl', 'rb') as handle:
             vocab_transform = pickle.load(handle)
         save_path = "D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttentionmuti.pt"
     elif varients == "additive":
+        SRC_LANGUAGE,TRG_LANGUAGE = 'np', 'en'
         print("Here.............................")
         with open('D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\vocab.pkl', 'rb') as handle:
             vocab_transform = pickle.load(handle)
@@ -84,7 +86,7 @@ def translation(source, varients,device):
     dropout     = 0.5
     SRC_PAD_IDX = PAD_IDX
 
-    attn = Attention(hid_dim, variants=variants)
+    attn = Attention(hid_dim, varients=varients)
     enc  = Encoder(input_dim,  emb_dim,  hid_dim, dropout)
     dec  = Decoder(output_dim, emb_dim,  hid_dim, dropout, attn)
 
@@ -116,9 +118,9 @@ def translation(source, varients,device):
 
 
 if __name__=="__main__":
-    variants = 'multiplicative'
-    save_path = 'D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttentionmuti.pt'
+    varients = 'additive'
+    #save_path = 'D:\\Machine Learning\\Natural-Language-Processing-2023\\Coding Assignment\\Nepali-English-Translation\\models\\Seq2SeqPackedAttentionmuti.pt'
     source = "It was like something out of a movie"
-    output = translation(source,variants,save_path)
+    output = translation(source,varients,device)
     print(source)
     print(output)

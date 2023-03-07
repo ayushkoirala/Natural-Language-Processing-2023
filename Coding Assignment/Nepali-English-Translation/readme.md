@@ -17,8 +17,10 @@ https://github.com/sushil79g/Nepali_nlp/tree/master/Nepali_nlp/local_dataset/tra
 ## Dataset Sample
 <p align="center"><img src="Figure/dataset-sample.png"></p>
 
+
 ## Features 
 some of the screenshot of my frontend:
-<p align="center"><img src="Figure/good-result.png"></p>
-<p align="center"><img src="Figure/good-img.png"></p>
-<p align="center"><img src="Figure/fail-img.png"></p>
+<p align="center"><img src="Figure/good-add.png"></p>
+<p align="center"><img src="Figure/fail-add.png"></p>
+<p align="center"><img src="Figure/good-add.png"></p>
+<p align="center"><img src="Figure/fail-mul.png"></p>

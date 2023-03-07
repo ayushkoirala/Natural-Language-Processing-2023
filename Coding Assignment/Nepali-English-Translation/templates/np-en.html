@@ -33,25 +33,31 @@
     </style>
 
     </head>
-    <body>
-        <div class="row">
-            <div class="column" style="background-color:#74992e;">
-                <form action="/np-en" method="POST">
-                    <div class = 'Method'>
-                        <label for = ""><B>Enter the Method</B></label>
-                        <br>
-                        <textarea name="Method" rows="10" cols="50">{{data.source}}</textarea>
-                    </div>
+    <body class="bg-secondary">
+        <div class="container-fluid">
+            <div class="row">
+                <form class="col" action="/np-en" method="POST">
                     <div class = 'source'>
-                        <label for = ""><B>Enter a English sentences</B></label>
+                        <label for = "source" class="text-white fw-bold form-label">Enter a English sentences</label>
                         <br>
-                        <textarea name="source" rows="10" cols="50">{{data.source}}</textarea>
+                        <textarea class="form-control" id="source" name="source" rows="10" cols="50">{{data.source}}</textarea>
                     </div>
-                    <button style="width:100px; height:100px;" type = "sumbit", value = "Translate", class = "btn btn-success">Translate</button>
+                    <div class = 'input group my-3 variant'>
+                        <label for = "variant" class="text-white fw-bold  form-label">Variant</label>
+                        <br>
+                        <select class="form-select" name="variant" id="variant">
+                            <option value="additive" {% if data.variant == 'additive' %} selected {% endif %}>Additive</option>
+                            <option value="multiplicative" {% if data.variant == 'multiplicative' %} selected {% endif %}>Multiplicative</option>
+                          </select>
+                    </div>
+                    <button type = "sumbit" value = "Translate" class = "mt-1 btn btn-success btn-large">Translate</button>
                 </form>
-                <label for = ""><B>Predictive Sentence</B></label>
-                <br>
-                <textarea name="source" rows="10" cols="50">{{data.predict}}</textarea>
+                <div class="col">
+                    <label for="predict" class="form-label text-white fw-bold ">Predictive Sentence</label>
+                    <br>
+                    <textarea id="predict" class="form-control"  name="predict" rows="10" cols="50">{{data.predict}}</textarea>
+                </div>
+               
             </div>
             
                 

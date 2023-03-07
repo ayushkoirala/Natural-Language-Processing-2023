@@ -42,9 +42,9 @@ class Encoder(nn.Module):
         return outputs, hidden
 
 class Attention(nn.Module):
-    def __init__(self, hid_dim, variants):
+    def __init__(self, hid_dim, varients):
         super().__init__()
-        self.variants = variants
+        self.varients = varients
         self.v = nn.Linear(hid_dim, 1, bias = False)
         self.W = nn.Linear(hid_dim,     hid_dim) #for decoder
         self.U = nn.Linear(hid_dim * 2, hid_dim) #for encoder outputs
@@ -60,7 +60,7 @@ class Attention(nn.Module):
         encoder_outputs = encoder_outputs.permute(1, 0, 2)
         #encoder_outputs = [batch size, src len, hid dim * 2]
 
-        if self.variants == 'additive': #work
+        if self.varients == 'additive': #work
             #repeat decoder hidden state src_len times
             hidden = hidden.unsqueeze(1).repeat(1, src_len, 1)
             #hidden = [batch size, src len, hid dim]
@@ -71,7 +71,7 @@ class Attention(nn.Module):
             attention = self.v(energy).squeeze(2)
             #attention = [batch size, src len]
             
-        elif self.variants == 'general': #work
+        elif self.varients == 'general': #work
             hidden = hidden.unsqueeze(1).repeat(1, 1, 2)
             #hidden = [batch size, 1, hid dim*2]
             #encoder_outputs = [batch size, hid dim * 2, src len]
@@ -80,7 +80,7 @@ class Attention(nn.Module):
             attention = energy.squeeze(1)
             #attention = [batch size, src len]
 
-        elif self.variants == 'multiplicative':
+        elif self.varients == 'multiplicative':
             wh = self.W(hidden).unsqueeze(1).repeat(1, 1, 2)
             #wh = [batch size, 1, hid dim*2]
             #encoder_outputs = [batch size, hid dim * 2, src len]

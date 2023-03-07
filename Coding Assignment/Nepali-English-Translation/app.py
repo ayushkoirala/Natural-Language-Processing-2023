@@ -16,7 +16,7 @@ SEED = 1234
 torch.manual_seed(SEED)
 torch.backends.cudnn.deterministic = True
 
-variants = 'additive'
+varients = 'additive'
 
 
 app = Flask(__name__)
@@ -32,13 +32,14 @@ def index():
 def machinetranslation():
     if request.method == 'POST':
         source = request.form.get('source')
-        varients = request.form.get('Method')
+        varients = request.form.get('variant')
+        print(varients)
         predict = translation(source, varients, device)
     else:
         source = ' '
         predict = ' '
     # predict = 555
-    data = {"source":source, "predict":predict}
+    data = {"source":source, "predict":predict, "variant":varients}
     return render_template("np-en.html", data = data)
 
 if __name__ == "__main__":
