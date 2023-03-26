@@ -28,15 +28,17 @@ class MyForm(FlaskForm):
 @app.route('/autocomplete', methods = ['GET','POST'])
 def autocomplete():
     form = MyForm()
-    gen = False
-    text = False
-    print(form.validate_on_submit())
-    if form.validate_on_submit():
-        text = form.text.data 
+    gen = ""
+    text = ""
+    if request.method == 'POST':
+        source = request.form.get('source')
+        print("...........",source)
         gen = pipe(text)[0]["generated_text"]
         print(gen)
-        form.text.data = ""
-    return render_template("autocomplete.html", form = form, text = text, gen = gen)
+        form.text.data = source
+    data = {"source":source, "predict":gen}
+    print(data)
+    return render_template("autocomplete.html",data= data)
 
 if __name__ == "__main__":
     app.run(debug=True)
