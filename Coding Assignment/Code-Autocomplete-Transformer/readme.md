@@ -34,7 +34,7 @@ Due to limited of training resources we are only able to train the model for  5 
 
 ## Model output: 
 
-<p align="center"><img src="Figure/output1.png"></p>
+<p align="center"><img src="Figure/outpu1.png"></p>
 
 Here, we have given a input prompt as 'Harry Potter is' and max_seq_len = 30. and Model generate the result on different temperature.
 
