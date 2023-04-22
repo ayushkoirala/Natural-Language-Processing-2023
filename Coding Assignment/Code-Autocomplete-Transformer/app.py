@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from utils.general import load_lstm,generate   
+from util.utils import load_model,generate   
 from torchtext.data.utils import get_tokenizer
 #Load GPU
 from flask_wtf import FlaskForm
@@ -31,7 +31,7 @@ def autocomplete():
     code = False
     name = False
     print(form.validate_on_submit())
-    model,vocab_dict = load_lstm()
+    model,vocab_dict = load_model()
     if form.validate_on_submit():
         name = form.name.data 
         temperature =  [0.4, 0.6, 0.8, 1.0]
@@ -42,4 +42,4 @@ def autocomplete():
 
 
 if __name__ == "__main__":        # on running python app.py
-    app.run(debug=True)  
+    app.run(debug=True) 
