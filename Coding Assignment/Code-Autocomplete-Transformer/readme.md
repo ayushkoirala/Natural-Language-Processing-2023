@@ -1,6 +1,6 @@
-# `Code Auto Complete`
+# `Text Auto Complete`
 
-BI-LSTM LM for Auto code complete on wikitext dataset
+Decorder based transforme model for Text auto complete on wikitext dataset
 
 
 ## Requirement
